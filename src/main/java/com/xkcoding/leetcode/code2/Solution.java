@@ -53,6 +53,25 @@ class Solution {
         return result.next;
     }
 
+    public static void main(String[] args) {
+        ListNode three = new ListNode(3);
+        ListNode four = new ListNode(4);
+        four.next = three;
+        ListNode two = new ListNode(2);
+        two.next = four;
+
+        ListNode four2 = new ListNode(4);
+        ListNode six = new ListNode(6);
+        six.next = four2;
+        ListNode five = new ListNode(5);
+        five.next = six;
+
+        Solution solution = new Solution();
+        ListNode listNode = solution.addTwoNumbers(two, five);
+        System.out.println("listNode = " + listNode);
+    }
+
+
 }
 
 
