@@ -1,7 +1,5 @@
 package com.xkcoding.leetcode.code38;
 
-import java.util.Stack;
-
 /**
  * <p>
  * 给定一个正整数 n（1 ≤ n ≤ 30），输出外观数列的第 n 项。
@@ -46,54 +44,47 @@ import java.util.Stack;
  * @author yangkai.shen
  * @date Created in 2020-07-14 23:49
  */
-class Solution {
+class Solution2 {
     /**
-     * 使用栈，判断栈顶元素，重复次数+1 即可
+     * 使用递归 + 字符串前后比较
      */
     public String countAndSay(int n) {
-        String init = "1";
         if (n == 1) {
-            return init;
+            return "1";
         }
 
-        for (int i = 2; i <= n; i++) {
-            StringBuilder result = new StringBuilder();
-            Stack<Data> stack = new Stack<>();
-            for (int j = init.length()-1; j >= 0; j--) {
-                Integer value = Integer.valueOf(init.charAt(j)+"");
-                if (stack.isEmpty() || stack.peek().value != value) {
-                    stack.push(new Data(value, 1));
-                } else if (stack.peek().value == value) {
-                    Data pop = stack.pop();
-                    pop.count += 1;
-                    stack.push(pop);
-                }
-            }
-
-            while (!stack.isEmpty()) {
-                Data pop = stack.pop();
-                result.append(pop.count).append(pop.value);
-            }
-
-            init = result.toString();
+        if (n == 2) {
+            return "11";
         }
-        return init;
+
+        String string = countAndSay(n - 1);
+        int count = 1;
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < string.length() - 1; i++) {
+            if (string.charAt(i) == string.charAt(i + 1)) {
+                count++;
+            } else {
+                result.append(count).append(string.charAt(i));
+                count = 1;
+            }
+        }
+        if (string.charAt(string.length() - 2) == string.charAt(string.length() - 1)) {
+            result.append(count);
+        } else {
+            result.append(1);
+        }
+
+        result.append(string.charAt(string.length() - 1));
+
+        return result.toString();
     }
 
-    class Data {
-        int value;
-        int count;
-
-        public Data(int value, int count) {
-            this.value = value;
-            this.count = count;
-        }
-    }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        Solution2 solution2 = new Solution2();
+
         for (int i = 1; i <= 15; i++) {
-            System.out.println(solution.countAndSay(i));
+            System.out.println(solution2.countAndSay(i));
         }
     }
 }
