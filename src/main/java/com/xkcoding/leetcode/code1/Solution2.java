@@ -23,13 +23,13 @@ import java.util.HashMap;
  */
 class Solution2 {
     public int[] twoSum(int[] nums, int target) {
-        HashMap<Integer, Integer> cache = new HashMap<>();
+        HashMap<Integer/*data*/, Integer/*position*/> cache = new HashMap<>(nums.length);
         for (int i = 0; i < nums.length; i++) {
             int result = target - nums[i];
             if (cache.containsKey(result)) {
                 int position = cache.get(result);
                 cache.clear();
-                return new int[]{i, position};
+                return new int[] {i, position};
             }
             cache.put(nums[i], i);
         }
