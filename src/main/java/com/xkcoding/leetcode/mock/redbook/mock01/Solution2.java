@@ -4,6 +4,14 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
 
+/**
+ * <p>
+ * 最长连续序列
+ * </p>
+ *
+ * @author yangkai.shen
+ * @date Created in 2022-11-01 20:31
+ */
 class Solution2 {
     public static void main(String[] args) {
         Solution2 solution = new Solution2();

@@ -2,6 +2,14 @@ package com.xkcoding.leetcode.mock.redbook.mock01;
 
 import java.util.Arrays;
 
+/**
+ * <p>
+ * 数组拆分
+ * </p>
+ *
+ * @author yangkai.shen
+ * @date Created in 2022-11-01 20:31
+ */
 class Solution1 {
     public int arrayPairSum(int[] nums) {
         // 排序后，从前到后取数即可

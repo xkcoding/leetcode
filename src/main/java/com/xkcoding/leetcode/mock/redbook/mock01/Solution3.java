@@ -4,6 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * <p>
+ * 三数之和
+ * </p>
+ *
+ * @author yangkai.shen
+ * @date Created in 2022-11-01 20:30
+ */
 class Solution3 {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
